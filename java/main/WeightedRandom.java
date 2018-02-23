@@ -143,6 +143,7 @@ public class WeightedRandom<T> {
                     + "weight of " + weight);
         }
         weightedItems.get(weight).remove(item);
+        totalWeight -= weight;
     }
     
     /**
@@ -154,6 +155,7 @@ public class WeightedRandom<T> {
         for(Integer i : weightedItems.keySet()) {
             if(weightedItems.get(i).contains(item)) {
                 weightedItems.get(i).remove(item);
+                totalWeight -= i;
                 if(weightedItems.get(i).isEmpty()) {
                     this.remove(i);
                 }
@@ -168,6 +170,7 @@ public class WeightedRandom<T> {
      */
     public void remove(int weight) {
         weightedItems.remove(weight);
+        totalWeight -= (weight * weightedItems.get(weight).size());
     }
     
     /**
@@ -195,7 +198,7 @@ public class WeightedRandom<T> {
      * WeightedRandom object.
      * @throws WeightedRandomException if there aren't any items in the list.
      */
-    public T random() throws WeightedRandomException {
+    public T next() throws WeightedRandomException {
         if(weightedItems.isEmpty()) {
             throw new WeightedRandomException("There are no items in the list! \n"
                     + "Use the add() method to populate the WeightedRandom object.");
