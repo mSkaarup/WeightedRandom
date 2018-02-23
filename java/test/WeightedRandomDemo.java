@@ -33,11 +33,11 @@ public class WeightedRandomDemo {
         // The number of times a random item will be drawn. In this example, The 
         // larger this number is, the closer the resulting percentages will be 
         // to the number next to it.
-        int numOfTimes = 1000000;
+        int numOfTimes = 10000000;
         
         for(int i = 0; i < numOfTimes; i++) {
             // The call to random() generats the random item.
-            int temp = rand.random();
+            int temp = rand.next();
             
             // Checks the random item and logs it for the calculations below.
             switch (temp) {
@@ -52,7 +52,7 @@ public class WeightedRandomDemo {
         // Prints the percentage of times an item was selected throughout the
         // loop.
         System.out.println("Number | Percentage");
-        System.out.println("50     | " + (((double)numOf50 / (double)numOfTimes) * 100) + "%");
+        System.out.println("50     | " + (((double)numOf50 / (double)numOfTimes) * 100) + "%" + rand.getPercentage(50));
         System.out.println("20     | " + (((double)numOf20 / (double)numOfTimes) * 100) + "%");
         System.out.println("15 #1  | " + (((double)numOf15 / (double)numOfTimes) * 100) + "%");
         System.out.println("15 #2  | " + (((double)numOf16 / (double)numOfTimes) * 100) + "%");
