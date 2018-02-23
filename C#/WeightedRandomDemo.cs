@@ -40,7 +40,7 @@ namespace WeightedRandom
 			{
 
 				// The call to Random() generates the random item.
-				int temp = random.Random ();
+				int temp = random.Next ();
 
 				// Checks the random item and logs it for the calculations below.
 				switch (temp) 

@@ -134,6 +134,7 @@ namespace WeightedRandom
 				throw new ArgumentException ("There is no " + item + "with a weight of " + weight);
 
 			weightedItems [weight].Remove (item);
+			totalWeight -= weight;
 		}
 
 		/// <summary>
@@ -145,9 +146,14 @@ namespace WeightedRandom
 			foreach(int weight in weightedItems.Keys) 
 			{
 				if (weightedItems [weight].Contains (item))
+				{
 					weightedItems [weight].Remove (item);
+					totalWeight -= weight;
+				}
+					
 				if (weightedItems [weight].Count == 0)
 					this.Remove (weight);
+				
 	        }
 	    }
 
@@ -158,6 +164,7 @@ namespace WeightedRandom
 	    public void Remove(int weight) 
 		{
 	        weightedItems.Remove(weight);
+			totalWeight -= (weight * weightedItems [weight].Count);
 	    }
 
 		/// <summary>
@@ -185,7 +192,7 @@ namespace WeightedRandom
 		/// </summary>
 		/// <exception cref="WeightedRandomException">Thrown if the WeightedRandom object is empty. Use the <c>Add()</c>
 		/// method to populate it.</exception>
-	    public T Random() {
+	    public T Next() {
 	        if(weightedItems.Count == 0) {
 				throw new WeightedRandomException ("There are no objects in the list! \n"
 					+ "Use the Add() method to populate the WeightedRandom object.");
