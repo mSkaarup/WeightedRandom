@@ -52,7 +52,7 @@ public class WeightedRandomDemo {
         // Prints the percentage of times an item was selected throughout the
         // loop.
         System.out.println("Number | Percentage");
-        System.out.println("50     | " + (((double)numOf50 / (double)numOfTimes) * 100) + "%" + rand.getPercentage(50));
+        System.out.println("50     | " + (((double)numOf50 / (double)numOfTimes) * 100) + "%");
         System.out.println("20     | " + (((double)numOf20 / (double)numOfTimes) * 100) + "%");
         System.out.println("15 #1  | " + (((double)numOf15 / (double)numOfTimes) * 100) + "%");
         System.out.println("15 #2  | " + (((double)numOf16 / (double)numOfTimes) * 100) + "%");
