@@ -5,21 +5,21 @@ using System.Runtime.Serialization;
 
 namespace WeightedRandom
 {
-	[Serializable]
-	public class WeightedRandomException : Exception 
-	{
-		public WeightedRandomException()
-		{
-		}
+    [Serializable]
+    public class WeightedRandomException : Exception 
+    {
+        public WeightedRandomException()
+        {
+        }
 
-		public WeightedRandomException(string message) 
-			: base(message)
-		{
-		}
+        public WeightedRandomException(string message) 
+            : base(message)
+        {
+        }
 
-		public WeightedRandomException(string message, Exception inner) 
-			: base(message, inner)
-		{
-		}
-	}
+        public WeightedRandomException(string message, Exception inner) 
+            : base(message, inner)
+        {
+        }
+    }
 }
